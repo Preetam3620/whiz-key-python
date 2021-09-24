@@ -38,7 +38,7 @@ def get_report(file):
 def uploadReport(filePath):
     dbname = get_database()
     head, tail = os.path.split(filePath)
-    productNumber = tail.split('Report .')[0]
+    productNumber = tail.split('.')[0]
     file = open(filePath)
     cycles, status = get_report(file)
     print(status)
