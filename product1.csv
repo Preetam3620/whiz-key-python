@@ -1,0 +1,160 @@
+Action1,Rinse Button Pressed  1
+Weight1,60ml
+Temp1,55.875
+#########################################,
+Action2,Tea Button Pressed 
+Motor1_Dir,Tea motor clockwise 
+Motor1_Status,Tea whipper motor active 
+Channel1_Status,Tea channel active  
+Weight2,81ml
+Temp2,70.25
+##############################################,
+Action3,Coffee Button Pressed 
+Motor2_Dir,Coffee motor clockwise 
+Motor2_Status,Coffee whipper motor active 
+Channel2_Status,COffee channel active 
+Weight3,78ml
+Temp3,75.5625
+###############################################,
+Action4,Half Coffee Button Pressed  
+Weight4,43ml
+Temp4,76.5625
+#############################################,
+Action5,Half Tea Button Pressed  
+Weight5,55ml
+Temp5,73.75
+###################################################,
+Action6,Hotwater button  Pressed  
+Weight6,45ml
+Temp6,76.125
+#################################################,
+Status,Pass
+#######################END###########################,
+Action1,Rinse Button Pressed  2
+Weight1,60ml
+Temp1,55.875
+#########################################,
+Action2,Tea Button Pressed 
+Motor1_Dir,Tea motor clockwise 
+Motor1_Status,Tea whipper motor active 
+Channel1_Status,Tea channel active  
+Weight2,81ml
+Temp2,70.25
+##############################################,
+Action3,Coffee Button Pressed 
+Motor2_Dir,Coffee motor clockwise 
+Motor2_Status,Coffee whipper motor active 
+Channel2_Status,COffee channel active 
+Weight3,78ml
+Temp3,75.5625
+###############################################,
+Action4,Half Coffee Button Pressed  
+Weight4,43ml
+Temp4,76.5625
+#############################################,
+Action5,Half Tea Button Pressed  
+Weight5,55ml
+Temp5,73.75
+###################################################,
+Action6,Hotwater button  Pressed  
+Weight6,45ml
+Temp6,76.125
+#################################################,
+Status,Pass
+#######################END###########################,
+Action1,Rinse Button Pressed  3
+Weight1,60ml
+Temp1,55.875
+#########################################,
+Action2,Tea Button Pressed 
+Motor1_Dir,Tea motor clockwise 
+Motor1_Status,Tea whipper motor active 
+Channel1_Status,Tea channel active  
+Weight2,81ml
+Temp2,70.25
+##############################################,
+Action3,Coffee Button Pressed 
+Motor2_Dir,Coffee motor clockwise 
+Motor2_Status,Coffee whipper motor active 
+Channel2_Status,COffee channel active 
+Weight3,78ml
+Temp3,75.5625
+###############################################,
+Action4,Half Coffee Button Pressed  
+Weight4,43ml
+Temp4,76.5625
+#############################################,
+Action5,Half Tea Button Pressed  
+Weight5,55ml
+Temp5,73.75
+###################################################,
+Action6,Hotwater button  Pressed  
+Weight6,45ml
+Temp6,76.125
+#################################################,
+Status,Pass
+#######################END###########################,
+Action1,Rinse Button Pressed  4
+Weight1,60ml
+Temp1,55.875
+#########################################,
+Action2,Tea Button Pressed 
+Motor1_Dir,Tea motor clockwise 
+Motor1_Status,Tea whipper motor active 
+Channel1_Status,Tea channel active  
+Weight2,81ml
+Temp2,70.25
+##############################################,
+Action3,Coffee Button Pressed 
+Motor2_Dir,Coffee motor clockwise 
+Motor2_Status,Coffee whipper motor active 
+Channel2_Status,COffee channel active 
+Weight3,78ml
+Temp3,75.5625
+###############################################,
+Action4,Half Coffee Button Pressed  
+Weight4,43ml
+Temp4,76.5625
+#############################################,
+Action5,Half Tea Button Pressed  
+Weight5,55ml
+Temp5,73.75
+###################################################,
+Action6,Hotwater button  Pressed  
+Weight6,45ml
+Temp6,76.125
+#################################################,
+Status,Pass
+#######################END###########################,
+Action1,Rinse Button Pressed  5
+Weight1,60ml
+Temp1,55.875
+#########################################,
+Action2,Tea Button Pressed 
+Motor1_Dir,Tea motor clockwise 
+Motor1_Status,Tea whipper motor active 
+Channel1_Status,Tea channel active  
+Weight2,81ml
+Temp2,70.25
+##############################################,
+Action3,Coffee Button Pressed 
+Motor2_Dir,Coffee motor clockwise 
+Motor2_Status,Coffee whipper motor active 
+Channel2_Status,COffee channel active 
+Weight3,78ml
+Temp3,75.5625
+###############################################,
+Action4,Half Coffee Button Pressed  
+Weight4,43ml
+Temp4,76.5625
+#############################################,
+Action5,Half Tea Button Pressed  
+Weight5,55ml
+Temp5,73.75
+###################################################,
+Action6,Hotwater button  Pressed  
+Weight6,45ml
+Temp6,76.125
+#################################################,
+Status,Pass
+#######################END###########################,

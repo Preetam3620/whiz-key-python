@@ -1,0 +1,147 @@
+Rinse  Button Pressed,
+Weight = 8.55,
+Tea Button ,
+Pressed,0
+TeaRotation,TeaClockwise
+CoffeeRotation,NoCoffeeRotation
+CoffeeWhipper,CoffeeVibratorInactive
+TeaWhipper,TeaVibratorInactive
+CoffeeChannel,CoffeeWaterChannelActive
+TeaChannel,TeaWaterChannelActive
+Weight = ,62.68
+Temperature ,66.9375
+Tea Button ,
+Pressed,1
+TeaRotation,TeaClockwise
+CoffeeRotation,NoCoffeeRotation
+CoffeeWhipper,CoffeeVibratorInactive
+TeaWhipper,TeaVibratorInactive
+CoffeeChannel,CoffeeWaterChannelActive
+TeaChannel,TeaWaterChannelActive
+Weight = ,84.15
+Temperature ,77.5625
+Tea Button ,
+Pressed,2
+TeaRotation,TeaCounterClockwise
+CoffeeRotation,NoCoffeeRotation
+CoffeeWhipper,CoffeeVibratorInactive
+TeaWhipper,TeaVibratorInactive
+CoffeeChannel,CoffeeWaterChannelActive
+TeaChannel,TeaWaterChannelActive
+Weight = ,80.23
+Temperature ,79.8125
+Tea Button ,
+Pressed,3
+TeaRotation,TeaCounterClockwise
+CoffeeRotation,NoCoffeeRotation
+CoffeeWhipper,CoffeeVibratorInactive
+TeaWhipper,TeaVibratorInactive
+CoffeeChannel,CoffeeWaterChannelActive
+TeaChannel,TeaWaterChannelActive
+Weight = ,85.75
+Temperature ,80.4375
+Tea Button ,
+Pressed,4
+TeaRotation,TeaClockwise
+CoffeeRotation,NoCoffeeRotation
+CoffeeWhipper,CoffeeVibratorInactive
+TeaWhipper,TeaVibratorInactive
+CoffeeChannel,CoffeeWaterChannelActive
+TeaChannel,TeaWaterChannelActive
+Weight = ,78.87
+Temperature ,81
+Coffee Button ,
+Pressed,0
+TeaRotation,NoTeaRotation
+CoffeeRotation,NoCoffeeRotation
+CoffeeWhipper,CoffeeVibratorInactive
+TeaWhipper,TeaVibratorInactive
+CoffeeChannel,CoffeeWaterChannelActive
+TeaChannel,TeaWaterChannelActive
+Weight = ,81.11
+Temperature  = ,78.8125
+Coffee Button ,
+Pressed,1
+TeaRotation,NoTeaRotation
+CoffeeRotation,NoCoffeeRotation
+CoffeeWhipper,CoffeeVibratorInactive
+TeaWhipper,TeaVibratorInactive
+CoffeeChannel,CoffeeWaterChannelActive
+TeaChannel,TeaWaterChannelActive
+Weight = ,74.02
+Temperature  = ,80.8125
+Coffee Button ,
+Pressed,2
+TeaRotation,NoTeaRotation
+CoffeeRotation,NoCoffeeRotation
+CoffeeWhipper,CoffeeVibratorInactive
+TeaWhipper,TeaVibratorInactive
+CoffeeChannel,CoffeeWaterChannelActive
+TeaChannel,TeaWaterChannelActive
+Weight = ,77.16
+Temperature  = ,81.9375
+Coffee Button ,
+Pressed,3
+TeaRotation,NoTeaRotation
+CoffeeRotation,NoCoffeeRotation
+CoffeeWhipper,CoffeeVibratorInactive
+TeaWhipper,TeaVibratorInactive
+CoffeeChannel,CoffeeWaterChannelActive
+TeaChannel,TeaWaterChannelActive
+Weight = ,77.02
+Temperature  = ,82.8125
+Coffee Button ,
+Pressed,4
+TeaRotation,NoTeaRotation
+CoffeeRotation,NoCoffeeRotation
+CoffeeWhipper,CoffeeVibratorInactive
+TeaWhipper,TeaVibratorInactive
+CoffeeChannel,CoffeeWaterChannelActive
+TeaChannel,TeaWaterChannelActive
+Weight ,75
+Temperature ,83
+Half Coffee Button Pressed  ,
+Weight ,49.81
+Temperature  ,81.125
+Half Coffee Button Pressed  ,
+Weight ,59.59
+Temperature  = ,81.4375
+Half Coffee Button Pressed  ,
+Weight ,39.89
+Temperature  = ,81.4375
+Half Coffee Button Pressed  ,
+Weight ,70.67
+Temperature  = ,81.625
+Half Coffee Button Pressed  ,
+Weight ,51.76
+Temperature  ,81.625
+Half Tea Button Pressed  ,
+Weight ,52.33
+Temperature ,73.75
+Half Tea Button Pressed  ,
+Weight ,48.48
+Temperature  ,75.8125
+Half Tea Button Pressed  ,
+Weight ,48.17
+Temperature ,76.625
+Half Tea Button Pressed  ,
+Weight  ,48.29
+Temperature ,76.625
+Half Tea Button Pressed  ,
+Weight  ,46.99
+Temperature ,76.9375
+Hotwater button  Pressed  ,
+Weight  ,65.6
+Temperature  ,77.125
+Hotwater button  Pressed  ,
+Weight  ,58.51
+Temperature  ,77.125
+Hotwater button  Pressed  ,
+Weight  ,59.87
+Temperature  ,77.125
+Hotwater button  Pressed  ,
+Weight  ,59.56
+Temperature  ,77.125
+Hotwater button  Pressed  ,
+Weight  ,59.26
+Temperature  ,83.125
