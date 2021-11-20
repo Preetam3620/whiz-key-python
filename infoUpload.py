@@ -21,7 +21,7 @@ def get_report(file):
     for row in csvFile:
         if row[0] == 'Status' and row[1] == 'Fail':
             status = False
-        if (row[0].find('END') == -1):
+        if (row[0].find('END') == -1): # if 'END' is not present
             if row[0][0] == '#':
                 pass
             else:
@@ -38,12 +38,19 @@ def uploadReport(filePath):
     currentDateTime = str(datetime.datetime.now())
     currentDate = currentDateTime[0:10]
     currentTime = currentDateTime[11:19]
+
+    # connect to database 
     dbname = get_database()
+
+    # get productNumber from fileName
     head, tail = os.path.split(filePath)
     productNumber = tail.split('.')[0]
+
+    # parse the file and get the data of cycles and status of the report
     file = open(filePath)
     cycles, status = get_report(file)
-    print(status)
+
+    # schema of the report 
     report = {
         'cycles': cycles,
         'productNumber': productNumber,
@@ -52,4 +59,5 @@ def uploadReport(filePath):
         'time': currentTime,
     }
 
+    # upload to database
     dbname['reports'].insert_one(report)
