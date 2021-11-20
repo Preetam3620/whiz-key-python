@@ -1,7 +1,6 @@
 import datetime
 import csv
 import os
-currentTime = datetime.datetime.now()
 
 
 def get_database():
@@ -36,6 +35,9 @@ def get_report(file):
 
 
 def uploadReport(filePath):
+    currentDateTime = str(datetime.datetime.now())
+    currentDate = currentDateTime[0:10]
+    currentTime = currentDateTime[11:19]
     dbname = get_database()
     head, tail = os.path.split(filePath)
     productNumber = tail.split('.')[0]
@@ -45,7 +47,9 @@ def uploadReport(filePath):
     report = {
         'cycles': cycles,
         'productNumber': productNumber,
-        'status': status
+        'status': status,
+        'date': currentDate,
+        'time': currentTime,
     }
 
     dbname['reports'].insert_one(report)
