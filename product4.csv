@@ -1,0 +1,80 @@
+WaterFillingtime ,Skipped
+WaterHeatingTime,Skipped
+Criteria,Button pressed,1
+GearBox1,OFF
+GearBox2,OFF
+GearBox3,OFF
+Mixer1,OFF
+Mixer2,OFF
+Mixer3,OFF
+WaterMixer1,OFF
+WaterMixer2,OFF
+WaterMixer3,OFF
+Temp,-22
+Weight,0.0
+E,N,D
+Criteria,Button pressed,2
+GearBox1,OFF
+GearBox2,OFF
+GearBox3,OFF
+Mixer1,OFF
+Mixer2,OFF
+Mixer3,OFF
+WaterMixer1,OFF
+WaterMixer2,OFF
+WaterMixer3,OFF
+Temp,-22
+Weight,0.0
+E,N,D
+Criteria,Button pressed,3
+GearBox1,OFF
+GearBox2,OFF
+GearBox3,OFF
+Mixer1,OFF
+Mixer2,OFF
+Mixer3,OFF
+WaterMixer1,OFF
+WaterMixer2,OFF
+WaterMixer3,OFF
+Temp,-22
+Weight,0.0
+E,N,D
+Criteria,Button pressed,4
+GearBox1,OFF
+GearBox2,OFF
+GearBox3,OFF
+Mixer1,OFF
+Mixer2,OFF
+Mixer3,OFF
+WaterMixer1,OFF
+WaterMixer2,OFF
+WaterMixer3,OFF
+Temp,-22
+Weight,0.0
+E,N,D
+Criteria,Button pressed,5
+GearBox1,OFF
+GearBox2,OFF
+GearBox3,OFF
+Mixer1,OFF
+Mixer2,OFF
+Mixer3,OFF
+WaterMixer1,OFF
+WaterMixer2,OFF
+WaterMixer3,OFF
+Temp,-22
+Weight,0.0
+E,N,D
+Criteria,Button pressed,6
+GearBox1,OFF
+GearBox2,OFF
+GearBox3,OFF
+Mixer1,OFF
+Mixer2,OFF
+Mixer3,OFF
+WaterMixer1,OFF
+WaterMixer2,OFF
+WaterMixer3,OFF
+Temp,-22
+Weight,0.0
+E,N,D
