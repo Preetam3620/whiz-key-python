@@ -22,12 +22,40 @@ def get_report(file):
     csvFile = csv.reader(file)
     WaterFillingTime = 0     # water filling time
     WaterHeatingTime = 0     # water heating time
+    Model = ''
+    MachineNumber = ''
+    SoftwareVersion = 0
+    Level00 = 0
+    Level01 = 0
+    Level11 = 0
+    TempCount = 0
+    PerCount = 0
+    LevelTemp = ''
+
 
     for row in csvFile:
         if (row[0].find('WaterFillingTime') != -1):
             WaterFillingTime = row[1]
         elif (row[0].find('WaterHeatingTime') != -1):
             WaterHeatingTime = row[1]
+        elif (row[0].find('Model') != -1):
+            Model = row[1]
+        elif (row[0].find('MachineNumber') != -1):
+            MachineNumber = row[1]
+        elif (row[0].find('SoftwareVersion') != -1):
+            SoftwareVersion = row[1]
+        elif (row[0].find('Level00') != -1):
+            Level00 = row[1]
+        elif (row[0].find('Level01') != -1):
+            Level01 = row[1]
+        elif (row[0].find('Level11') != -1):
+            Level11 = row[1]
+        elif (row[0].find('TempCount') != -1):
+            TempCount = row[1]
+        elif (row[0].find('PerCount') != -1):
+            PerCount = row[1]
+        elif (row[0].find('LevelTemp') != -1):
+            LevelTemp = row[1]
         elif (row[0].find('E') == -1): # if 'END' is not present
             if (row[0].find('Criteria') != -1):
                 modifiedRow = [row[0], row[1] + row[2]]
@@ -35,7 +63,11 @@ def get_report(file):
             else:
                 cycle.append(row)
         else:
-            statusCheck(cycle)
+            if (Model == 'Excella'):
+                statusCheckExcella(cycle)
+            else:
+                statusCheck3K(cycle)
+            # statusCheck(cycle)
             cycletoMap = {item[0]: item[1] for item in cycle}
             cycles.append(cycletoMap)
             cycle = []
@@ -45,10 +77,10 @@ def get_report(file):
             status = False
     
     print(cycles)
-    return cycles, status, WaterFillingTime, WaterHeatingTime
+    return cycles, status, WaterFillingTime, WaterHeatingTime, Model, MachineNumber, SoftwareVersion, Level00, Level01, Level11, TempCount, PerCount, LevelTemp
 
 
-def statusCheck(cycle):
+def statusCheck3K(cycle):
     cycleStatus = True
     
     if (cycle[0][1] == 'Rinse'):
@@ -70,7 +102,7 @@ def statusCheck(cycle):
             cycleStatus = False
         elif (cycle[9][1] != 'ON'): # Water in Mixer3
             cycleStatus = False
-        elif (int(cycle[10][1]) > 85 and int(cycle[10][1]) < 75): # Temp
+        elif (float(cycle[10][1]) > 85 and float(cycle[10][1]) < 75): # Temp
             cycleStatus = False
     elif (cycle[0][1] == 'Button pressed1'):
         if (cycle[1][1] != 'clockwise'): # GB1
@@ -91,9 +123,9 @@ def statusCheck(cycle):
             cycleStatus = False
         elif (cycle[9][1] != 'OFF'): # Water in Mixer3
             cycleStatus = False
-        elif (int(cycle[10][1]) > 85 and int(cycle[10][1]) < 75): # Temp
+        elif (float(cycle[10][1]) > 85 and float(cycle[10][1]) < 75): # Temp
             cycleStatus = False
-        elif (int(cycle[10][1]) > 95 and int(cycle[10][1]) < 85): # Weight
+        elif (float(cycle[11][1]) > 95 and float(cycle[11][1]) < 85): # Weight
             cycleStatus = False
     elif (cycle[0][1] == 'Button pressed2'):
         if (cycle[1][1] != 'OFF'): # GB1
@@ -114,11 +146,34 @@ def statusCheck(cycle):
             cycleStatus = False
         elif (cycle[9][1] != 'OFF'): # Water in Mixer3
             cycleStatus = False
-        elif (int(cycle[10][1]) > 85 and int(cycle[10][1]) < 75): # Temp
+        elif (float(cycle[10][1]) > 85 and float(cycle[10][1]) < 75): # Temp
             cycleStatus = False
-        elif (int(cycle[10][1]) > 95 and int(cycle[10][1]) < 85): # Weight
+        elif (float(cycle[11][1]) > 95 and float(cycle[11][1]) < 85): # Weight
             cycleStatus = False   
     elif (cycle[0][1] == 'Button pressed3'):
+        if (cycle[1][1] != 'OFF'): # GB1
+            cycleStatus = False
+        elif (cycle[2][1] != 'OFF'): # GB2
+            cycleStatus = False
+        elif (cycle[3][1] != 'clockwise'): # GB3
+            cycleStatus = False
+        elif (cycle[4][1] != 'OFF'): # Mixer1
+            cycleStatus = False
+        elif (cycle[5][1] != 'OFF'): # Mixer2
+            cycleStatus = False
+        elif (cycle[6][1] != 'ON'): # Mixer3
+            cycleStatus = False
+        elif (cycle[7][1] != 'OFF'): # Water in Mixer1
+            cycleStatus = False
+        elif (cycle[8][1] != 'OFF'): # Water in Mixer2
+            cycleStatus = False
+        elif (cycle[9][1] != 'ON'): # Water in Mixer3
+            cycleStatus = False
+        elif (float(cycle[10][1]) > 85 and float(cycle[10][1]) < 75): # Temp
+            cycleStatus = False
+        elif (float(cycle[11][1]) > 95 and float(cycle[11][1]) < 85): # Weight
+            cycleStatus = False
+    elif (cycle[0][1] == 'Button pressed4'):
         if (cycle[1][1] != 'clockwise'): # GB1
             cycleStatus = False
         elif (cycle[2][1] != 'OFF'): # GB2
@@ -137,11 +192,11 @@ def statusCheck(cycle):
             cycleStatus = False
         elif (cycle[9][1] != 'OFF'): # Water in Mixer3
             cycleStatus = False
-        elif (int(cycle[10][1]) > 85 and int(cycle[10][1]) < 75): # Temp
+        elif (float(cycle[10][1]) > 85 and float(cycle[10][1]) < 75): # Temp
             cycleStatus = False
-        elif (int(cycle[10][1]) > 50 and int(cycle[10][1]) < 45): # Weight
+        elif (float(cycle[11][1]) > 50 and float(cycle[11][1]) < 45): # Weight
             cycleStatus = False
-    elif (cycle[0][1] == 'Button pressed4'):
+    elif (cycle[0][1] == 'Button pressed5'):
         if (cycle[1][1] != 'OFF'): # GB1
             cycleStatus = False
         elif (cycle[2][1] != 'clockwise'): # GB2
@@ -160,37 +215,145 @@ def statusCheck(cycle):
             cycleStatus = False
         elif (cycle[9][1] != 'OFF'): # Water in Mixer3
             cycleStatus = False
-        elif (int(cycle[10][1]) > 85 and int(cycle[10][1]) < 75): # Temp
+        elif (float(cycle[10][1]) > 85 and float(cycle[10][1]) < 75): # Temp
             cycleStatus = False
-        elif (int(cycle[10][1]) > 50 and int(cycle[10][1]) < 45): # Weight
+        elif (float(cycle[11][1]) > 50 and float(cycle[11][1]) < 45): # Weight
+            cycleStatus = False
+    elif (cycle[0][1] == 'Button pressed6'):
+        if (cycle[1][1] != 'OFF'): # GB1
+            cycleStatus = False
+        elif (cycle[2][1] != 'OFF'): # GB2
+            cycleStatus = False
+        elif (cycle[3][1] != 'clockwise'): # GB3
+            cycleStatus = False
+        elif (cycle[4][1] != 'OFF'): # Mixer1
+            cycleStatus = False
+        elif (cycle[5][1] != 'OFF'): # Mixer2
+            cycleStatus = False
+        elif (cycle[6][1] != 'ON'): # Mixer3
+            cycleStatus = False
+        elif (cycle[7][1] != 'OFF'): # Water in Mixer1
+            cycleStatus = False
+        elif (cycle[8][1] != 'OFF'): # Water in Mixer2
+            cycleStatus = False
+        elif (cycle[9][1] != 'ON'): # Water in Mixer3
+            cycleStatus = False
+        elif (float(cycle[10][1]) > 85 and float(cycle[10][1]) < 75): # Temp
+            cycleStatus = False
+        elif (float(cycle[11][1]) > 50 and float(cycle[11][1]) < 45): # Weight
+            cycleStatus = False
+
+    statusRow = ['Status', cycleStatus]
+    cycle.append(statusRow)
+    
+def statusCheckExcella(cycle):
+    cycleStatus = True
+    
+    if (cycle[0][1] == 'Rinse'):
+        if (cycle[1][1] != 'OFF'): # GB1
+            cycleStatus = False
+        elif (cycle[2][1] != 'OFF'): # GB2
+            cycleStatus = False
+        elif (cycle[3][1] != 'ON'): # Mixer1
+            cycleStatus = False
+        elif (cycle[4][1] != 'ON'): # Mixer2
+            cycleStatus = False
+        elif (cycle[5][1] != 'ON'): # Water in Mixer1
+            cycleStatus = False
+        elif (cycle[6][1] != 'ON'): # Water in Mixer2
+            cycleStatus = False
+        elif (float(cycle[7][1]) > 85 and float(cycle[7][1]) < 75): # Temp
+            cycleStatus = False
+    elif (cycle[0][1] == 'Button pressed1'):
+        if (cycle[1][1] != 'clockwise'): # GB1
+            cycleStatus = False
+        elif (cycle[2][1] != 'OFF'): # GB2
+            cycleStatus = False
+        elif (cycle[3][1] != 'ON'): # Mixer1
+            cycleStatus = False
+        elif (cycle[4][1] != 'OFF'): # Mixer2
+            cycleStatus = False
+        elif (cycle[5][1] != 'ON'): # Water in Mixer1
+            cycleStatus = False
+        elif (cycle[6][1] != 'OFF'): # Water in Mixer2
+            cycleStatus = False
+        elif (float(cycle[7][1]) > 85 and float(cycle[7][1]) < 75): # Temp
+            cycleStatus = False
+        elif (float(cycle[8][1]) > 95 and float(cycle[8][1]) < 85): # Weight
+            cycleStatus = False
+    elif (cycle[0][1] == 'Button pressed2'):
+        if (cycle[1][1] != 'OFF'): # GB1
+            cycleStatus = False
+        elif (cycle[2][1] != 'clockwise'): # GB2
+            cycleStatus = False
+        elif (cycle[3][1] != 'OFF'): # Mixer1
+            cycleStatus = False
+        elif (cycle[4][1] != 'ON'): # Mixer2
+            cycleStatus = False
+        elif (cycle[5][1] != 'OFF'): # Water in Mixer1
+            cycleStatus = False
+        elif (cycle[6][1] != 'ON'): # Water in Mixer2
+            cycleStatus = False
+        elif (float(cycle[7][1]) > 85 and float(cycle[7][1]) < 75): # Temp
+            cycleStatus = False
+        elif (float(cycle[8][1]) > 95 and float(cycle[8][1]) < 85): # Weight
+            cycleStatus = False   
+    elif (cycle[0][1] == 'Button pressed3'):
+        if (cycle[1][1] != 'clockwise'): # GB1
+            cycleStatus = False
+        elif (cycle[2][1] != 'OFF'): # GB2
+            cycleStatus = False
+        elif (cycle[3][1] != 'ON'): # Mixer1
+            cycleStatus = False
+        elif (cycle[4][1] != 'OFF'): # Mixer2
+            cycleStatus = False
+        elif (cycle[5][1] != 'ON'): # Water in Mixer1
+            cycleStatus = False
+        elif (cycle[6][1] != 'OFF'): # Water in Mixer2
+            cycleStatus = False
+        elif (float(cycle[7][1]) > 85 and float(cycle[7][1]) < 75): # Temp
+            cycleStatus = False
+        elif (float(cycle[8][1]) > 50 and float(cycle[8][1]) < 45): # Weight
+            cycleStatus = False
+    elif (cycle[0][1] == 'Button pressed4'):
+        if (cycle[1][1] != 'OFF'): # GB1
+            cycleStatus = False
+        elif (cycle[2][1] != 'clockwise'): # GB2
+            cycleStatus = False
+        elif (cycle[3][1] != 'OFF'): # Mixer1
+            cycleStatus = False
+        elif (cycle[4][1] != 'ON'): # Mixer2
+            cycleStatus = False
+        elif (cycle[5][1] != 'OFF'): # Water in Mixer1
+            cycleStatus = False
+        elif (cycle[6][1] != 'ON'): # Water in Mixer2
+            cycleStatus = False
+        elif (float(cycle[7][1]) > 85 and float(cycle[7][1]) < 75): # Temp
+            cycleStatus = False
+        elif (float(cycle[8][1]) > 50 and float(cycle[8][1]) < 45): # Weight
             cycleStatus = False
     elif (cycle[0][1] == 'Button pressed5'):
         if (cycle[1][1] != 'OFF'): # GB1
             cycleStatus = False
         elif (cycle[2][1] != 'OFF'): # GB2
             cycleStatus = False
-        elif (cycle[3][1] != 'OFF'): # GB3
+        elif (cycle[3][1] != 'OFF'): # Mixer1
             cycleStatus = False
-        elif (cycle[4][1] != 'OFF'): # Mixer1
+        elif (cycle[4][1] != 'OFF'): # Mixer2
             cycleStatus = False
-        elif (cycle[5][1] != 'OFF'): # Mixer2
+        elif (cycle[5][1] != 'OFF'): # Water in Mixer1
             cycleStatus = False
-        elif (cycle[6][1] != 'OFF'): # Mixer3
+        elif (cycle[6][1] != 'OFF'): # Water in Mixer2
             cycleStatus = False
-        elif (cycle[7][1] != 'OFF'): # Water in Mixer1
+        elif (float(cycle[7][1]) > 85 and float(cycle[7][1]) < 75): # Temp
             cycleStatus = False
-        elif (cycle[8][1] != 'OFF'): # Water in Mixer2
+        elif (float(cycle[8][1]) > 50 and float(cycle[8][1]) < 45): # Weight
             cycleStatus = False
-        elif (cycle[9][1] != 'OFF'): # Water in Mixer3
-            cycleStatus = False
-        elif (int(cycle[10][1]) > 85 and int(cycle[10][1]) < 75): # Temp
-            cycleStatus = False
-        elif (int(cycle[10][1]) > 95 and int(cycle[10][1]) < 85): # Weight
-            cycleStatus = False
+
 
     statusRow = ['Status', cycleStatus]
     cycle.append(statusRow)
-    
+
 
 def uploadReport(filePath):
     currentDateTime = str(datetime.datetime.now())
@@ -206,7 +369,7 @@ def uploadReport(filePath):
 
     # parse the file and get the data of cycles
     file = open(filePath)
-    cycles, status, WaterFillingTime, WaterHeatingTime = get_report(file)
+    cycles, status, WaterFillingTime, WaterHeatingTime, Model, MachineNumber, SoftwareVersion, Level00, Level01, Level11, TempCount, PerCount, LevelTemp = get_report(file)
 
     # schema of the report 
     report = {
@@ -215,6 +378,15 @@ def uploadReport(filePath):
         'productNumber': productNumber,
         'WaterFillingTime': WaterFillingTime,
         'WaterHeatingTime': WaterHeatingTime,
+        'Model': Model,
+        'MachineNumber': MachineNumber,
+        'SoftwareVersion': SoftwareVersion,
+        'Level00': Level00,
+        'Level01': Level01,
+        'Level11': Level11,
+        'TempCount': TempCount,
+        'PerCount': PerCount,
+        'LevelTemp': LevelTemp,
         'date': currentDate,
         'time': currentTime,
     }
